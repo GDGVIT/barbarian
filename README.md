@@ -42,7 +42,7 @@
 ## Contributors
 
 * [ Govind K ](https://github.com/roidujeu)
-* [ Vishaal Selvaraj ](INSERT_PROFILE_URL_HERE)
+* [ Vishaal Selvaraj ](https://github.com/supercmmetry)
 
 
 
