@@ -26,7 +26,7 @@
 	-  GCC
 	-  CMake(Preffered)
 
-```* < directions to install > 
+<!--```* < directions to install > 
 ```bash
 < insert code >
 ```
@@ -36,7 +36,7 @@
 ```bash
 < insert code >
 ```
-
+--!>
 <br>
 
 ## Contributors
