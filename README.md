@@ -26,15 +26,15 @@
 	-  GCC
 	-  CMake(Preffered)
 
-`* < directions to install > 
+```* < directions to install > 
 ```bash
-< insert code >
+```< insert code >
 ```
 
-`* < directions to execute >
+```* < directions to execute >
 
 ```bash
-< insert code >
+```< insert code >
 ```
 
 <br>
