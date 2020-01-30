@@ -24,7 +24,7 @@
 	-  Qt
 	-  Conan
 	-  GCC
-	-  CMake(Preffered)
+	-  CMake(Preferred)
 
 <!--```* < directions to install > 
 ```bash
