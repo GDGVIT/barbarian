@@ -27,14 +27,14 @@
 	-  CMake(Preffered)
 
 ```* < directions to install > 
-```bash
-```< insert code >
-```
+```*bash
+```*< insert code >
+```*
 
 ```* < directions to execute >
 
-```bash
-```< insert code >
+```*bash
+```*< insert code >
 ```
 
 <br>
