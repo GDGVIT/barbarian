@@ -26,25 +26,12 @@
 	-  GCC
 	-  CMake(Preferred)
 	-  Pybind11
-
-<!--```* < directions to install > 
-```bash
-< insert code >
-```
-
-```* < directions to execute >
-
-```bash
-< insert code >
-```
---!>
 <br>
 
 ## Contributors
 
 * [ Govind K ](https://github.com/roidujeu)
 * [ Vishaal Selvaraj ](https://github.com/supercmmetry)
-
 
 
 <br>
