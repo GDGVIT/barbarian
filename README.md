@@ -1,7 +1,7 @@
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/30529572/72455010-fb38d400-37e7-11ea-9c1e-8cdeb5f5906e.png" />
-	<h2 align="center"> < ConanGUI > </h2>
-	<h4 align="center"> < GUI for the conan package manager using Qt. > <h4>
+	<h2 align="center">  ConanGUI  </h2>
+	<h4 align="center">  GUI for the conan package manager using Qt.  <h4>
 </p>
 
 ---
@@ -24,16 +24,14 @@
 	-  Qt
 	-  Conan
 	-  GCC
-	-  CMake(Preffered)
-
-
+	-  CMake(Preferred)
+	-  Pybind11
 <br>
 
 ## Contributors
 
 * [ Govind K ](https://github.com/roidujeu)
-* [ Vishaal Selvaraj ](INSERT_PROFILE_URL_HERE)
-
+* [ Vishaal Selvaraj ](https://github.com/supercmmetry)
 
 
 <br>
@@ -42,4 +40,3 @@
 <p align="center">
 	Made with :heart: by DSC VIT
 </p>
-
