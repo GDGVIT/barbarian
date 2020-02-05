@@ -25,6 +25,7 @@
 	-  Conan
 	-  GCC
 	-  CMake(Preferred)
+	-  Pybind11
 
 <!--```* < directions to install > 
 ```bash
