@@ -12,7 +12,6 @@
 ## Functionalities
 - [ ]   Search for packages. 
 - [ ]   Download and install packages.
-- [ ]   Upgrade packages.
 - [ ]   Remove packages.
 
 <br>
@@ -25,7 +24,6 @@
 	-  Conan
 	-  GCC
 	-  CMake(Preferred)
-	-  Pybind11
 <br>
 
 ## Contributors
