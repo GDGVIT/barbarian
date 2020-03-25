@@ -27,11 +27,11 @@
 	-  CMake(Preferred)
 <br>
 
-* How to install/build (with cmake):
-	$ mkdir build
-	$ cd build
-	$ cmake ..
-	$ cmake --build . --target all
+* How to install/build (with cmake):  
+        $ mkdir build  
+	$ cd build  
+	$ cmake ..  
+	$ cmake --build . --target all  
 <br>
 	
 ## Contributors
