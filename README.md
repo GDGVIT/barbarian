@@ -25,7 +25,6 @@
 	-  Conan
 	-  GCC
 	-  CMake(Preferred)
-	-  Pybind11
 <br>
 
 ## Contributors
