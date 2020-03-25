@@ -10,10 +10,10 @@
 
 
 ## Functionalities
-- [ ]   Search for packages. 
-- [ ]   Download and install packages.
-- [ ]   Upgrade packages.
-- [ ]   Remove packages.
+- [X]   Search for packages. 
+- [X]   Download and install packages.
+- [X]   Upgrade packages.
+- [X]   Remove packages.
 
 <br>
 
@@ -27,6 +27,13 @@
 	-  CMake(Preferred)
 <br>
 
+* How to install/build (with cmake):
+	$ mkdir build
+	$ cd build
+	$ cmake ..
+	$ cmake --build . --target all
+<br>
+	
 ## Contributors
 
 * [ Govind K ](https://github.com/roidujeu)
