@@ -25,13 +25,19 @@
 	-  Conan
 	-  GCC
 	-  CMake(Preferred)
+	-  POSIX compliant(unix-like) OS.
 <br>
 
 * How to install/build (with cmake):  
-        $ mkdir build  
-	$ cd build  
-	$ cmake ..  
-	$ cmake --build . --target all  
+
+  From the cloned directory,  
+```
+$ mkdir build  
+$ cd build  
+$ cmake ..  
+$ cmake --build . --target all  
+$ ./Barbarian
+```
 <br>
 	
 ## Contributors
