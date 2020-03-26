@@ -9,6 +9,22 @@
 #include <stdio.h>
 #include <QString>
 #include <QFileInfo>
+<<<<<<< HEAD
+#include <QtWidgets>
+#include <QThread>
+#include <thread>
+#include <QTimer>
+
+static QString Conan_file_remotes = "remotes.json";
+static QString Conan_file_config = "conan.conf";
+static QString installedList_File = "./installed.txt";
+static QString buildSystem_File = "./buildsystem.txt";
+static char packageList_File[] = "./pkglist.txt";
+static char * Conan_Dir_str = getenv("CONAN_DIR");
+static QString Conan_Dir = QString::fromLocal8Bit(Conan_Dir_str);
+QProcess Install_Package;
+QProcess Package_Find;
+=======
 
 static QString Conan_Dir_Data = "/data/";
 static QString Conan_file_remotes = "/remotes.json";
@@ -17,17 +33,35 @@ static QString installedList_File = "./installed.txt";
 static QString buildSystem_File = "./buildsystem.txt";
 static char packageList_File[] = "./pkglist.txt";
 static QString Conan_Dir = QString::fromLocal8Bit(getenv("CONAN_GUI_DIR"));
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 
 barbarian::barbarian(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::barbarian)
 {
+<<<<<<< HEAD
+    if(system("conan > /dev/null") != 0) {
+        QMessageBox::critical(this,"Conan not found!","It seems conan is not installed in your system. Please install and try opening again.");
+
+    } else {
+        ui->setupUi(this);
+        ui->stackedWidget->setCurrentIndex(0);
+        ui->lineEdit_Remotes->setText("all");
+        ui->progressBar_Progress->hide();
+        remotes_fileOpen();
+        config_fileOpen();
+        showBuildSystem();
+        show_Storage_Path();
+        ui->lineEdit_Conan_Dir->setText(Conan_Dir);
+    }
+=======
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     char * Conan_Dir_str = getenv("CONAN_GUI_DIR");
     QString Conan_Dir = QString::fromLocal8Bit(Conan_Dir_str);
     ui->lineEdit_Conan_Dir->setText(Conan_Dir);
     ui->lineEdit_Remotes->setText("all");
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 barbarian::~barbarian()
@@ -35,6 +69,44 @@ barbarian::~barbarian()
     delete ui;
 }
 
+<<<<<<< HEAD
+void barbarian::on_pushButton_Search_Packages_clicked() {
+    if(system("ping -c 1 google.com") == 0) {
+        ui->progressBar_Progress->setValue(0);
+        ui->progressBar_Progress->show();
+        QString search_Term = ui->lineEdit_Search->text();
+        QString remotes_Term = ui->lineEdit_Remotes->text();
+        if(search_Term.length() == 0 || remotes_Term.length() == 0) {
+            QMessageBox::critical(this,"Error","The search field and/or remote field is empty.");
+        } else {
+            QByteArray search_Term_qbyte = search_Term.toLocal8Bit();
+            QByteArray remotes_Term_qbyte = remotes_Term.toLocal8Bit();
+            char * search_Term_char = search_Term_qbyte.data();
+            char * remotes_Term_char = remotes_Term_qbyte.data();
+            char remotes_comb[20];
+            sprintf(remotes_comb,"-r=%s",remotes_Term_char);
+            QString remotes_Term_Comb(remotes_comb);
+            char combined_Buffer[200];
+            sprintf(combined_Buffer,"conan search %s -r=%s", search_Term_char, remotes_Term_char);
+            ui->progressBar_Progress->setValue(40);
+            QString combined_Buffer_QStr(combined_Buffer);
+            Package_Find.setProcessChannelMode(QProcess::MergedChannels);
+            Package_Find.start("conan", QStringList() << "search" << search_Term << remotes_Term_Comb);
+            ui->stackedWidget->setCurrentIndex(3);
+            Package_Find.waitForFinished(-1);
+            while(Package_Find.canReadLine()) {
+                QByteArray line_QBA = Package_Find.readLine();
+                QString line = QString::fromStdString(line_QBA.toStdString());
+                ui->listWidget_PackageList->addItem(line);
+            }
+        }
+    } else {
+        QMessageBox::critical(this,"No Connection!","You're not connected to internet. Please connect and try again!");
+    }
+}
+
+
+=======
 
 void barbarian::on_pushButton_Search_Packages_clicked()
 {
@@ -50,6 +122,7 @@ void barbarian::on_pushButton_Search_Packages_clicked()
     show_Search_Result();
 
 }
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 void barbarian::on_actionQuit_triggered()
 {
     qApp->quit();
@@ -62,10 +135,17 @@ void barbarian::on_actionAbout_QT_triggered()
 
 void barbarian::on_actionPreferences_triggered()
 {
+<<<<<<< HEAD
+    ui->stackedWidget->setCurrentIndex(2);
+    show_Compression();
+    show_Profile();
+    show_Storage_Path();
+=======
     remotes_fileOpen();
     config_fileOpen();
     showBuildSystem();
     ui->stackedWidget->setCurrentIndex(2);
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 void barbarian::on_actionSearch_triggered()
@@ -74,6 +154,25 @@ void barbarian::on_actionSearch_triggered()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+<<<<<<< HEAD
+void barbarian::show_Installed() {
+    ui->listWidget_Installed->clear();
+    ui->stackedWidget->setCurrentIndex(1);
+    QProcess Searchy;
+    Searchy.start("conan search");
+    Searchy.waitForFinished(-1);
+    while(Searchy.canReadLine()) {
+        QByteArray searchy_QBA = Searchy.readLine();
+        QString searchy_line = QString::fromStdString(searchy_QBA.toStdString());
+        ui->listWidget_Installed->addItem(searchy_line);
+    }
+    Searchy.kill();
+}
+
+void barbarian::on_actionInstalled_triggered()
+{
+    show_Installed();
+=======
 void barbarian::on_actionInstalled_triggered()
 {
     ui->listWidget_Installed->clear();
@@ -89,6 +188,7 @@ void barbarian::on_actionInstalled_triggered()
         }
         installed_Files_List.close();
     }
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 
@@ -134,6 +234,15 @@ void barbarian::config_fileOpen() {
 }
 
 void barbarian::show_Search_Result() {
+<<<<<<< HEAD
+    ui->listWidget_PackageList->clear();
+    QFile search_Result_File(packageList_File);
+
+    if(search_Result_File.open(QIODevice::ReadWrite | QIODevice::ReadOnly)) {
+        while(!search_Result_File.atEnd()) {
+            QString result_Item = search_Result_File.readLine();
+            if (result_Item.contains("/") || result_Item.contains("Remote")) {
+=======
     ui->stackedWidget->setCurrentIndex(3);
     ui->listWidget_PackageList->clear();
     QFile search_Result_File(packageList_File);
@@ -142,6 +251,7 @@ void barbarian::show_Search_Result() {
         while(!search_Result_File.atEnd()) {
             QString result_Item = search_Result_File.readLine();
             if (result_Item.contains("/") || result_Item.contains("Remote2")) {
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
                 ui->listWidget_PackageList->addItem(result_Item);
             }
         }
@@ -181,6 +291,64 @@ void barbarian::on_actionAbout_Conan_triggered()
 
 void barbarian::on_pushButton_Package_Install_clicked()
 {
+<<<<<<< HEAD
+    ui->progressBar_Installation->setValue(0);
+    QString Conan_File_TXT = "/conanfile.txt";
+    int current_Index_PackageList = ui->listWidget_PackageList->currentRow();
+    QString current_Install_Package = ui->listWidget_PackageList->item(current_Index_PackageList)->text();
+    if(!current_Install_Package.contains("/")) {
+        QMessageBox::information(this,"Error","Select a package.");
+    } else {
+        QString Proj_Dir = ui->lineEdit_Project_Directory->text();
+        QString Proj_generator = ui->lineEdit_BuildSystem->text();
+        if(Proj_Dir.length() == 0) {
+            QMessageBox::critical(this,"Error","Please specifiy the project directory.");
+        } else {
+            if(current_Install_Package.length() == 0 ) {
+                QMessageBox::critical(this, "Error" ,"Please choose a package");
+            } else {
+                Conan_File_TXT = Proj_Dir + Conan_File_TXT;
+                QFile Proj_Dir_File(Conan_File_TXT);
+                if(Proj_Dir_File.open(QIODevice::ReadWrite)) {
+                    QTextStream Proj_Dir_File_Write(&Proj_Dir_File);
+                    Proj_Dir_File_Write << "[requires]" << "\n";
+                    Proj_Dir_File_Write << current_Install_Package << "\n\n";
+                    Proj_Dir_File_Write << "[generators]" << "\n";
+                    Proj_Dir_File_Write << Proj_generator;
+                    Proj_Dir_File.close();
+                }
+                remotes_fileOpen();
+                config_fileOpen();
+                showBuildSystem();
+                ui->lineEdit_Conan_Dir->setText(Conan_Dir);
+                QByteArray Proj_Dir_QBA = Proj_Dir.toLocal8Bit();
+                char * Proj_Dir_char = Proj_Dir_QBA.data();
+                char Conan_Install_Command[100];
+                char Conan_Installed_Transfer[200];
+                sprintf(Conan_Install_Command,"conan install %s", Proj_Dir_char);
+                QString Conan_Install_Command_QS(Conan_Install_Command);
+                ui->progressBar_Installation->setValue(70);
+                Install_Package.setProcessChannelMode(QProcess::MergedChannels);
+                Install_Package.start(Conan_Install_Command_QS);
+                if(Install_Package.waitForFinished(-1)) {
+                    while(Install_Package.canReadLine()) {
+                        QByteArray IP_line_QBA = Install_Package.readLine();
+                        QString IP_line = QString::fromStdString(IP_line_QBA.toStdString());
+                        ui->textEdit_Installation->append(IP_line);
+                    }
+                    ui->progressBar_Installation->setValue(100);
+                    ui->progressBar_Installation->setValue(0);
+                    QMessageBox::information(this,"Success","The package was successfully installed!");
+                }
+
+
+                sprintf(Conan_Installed_Transfer,"mv ./conanbuildinfo.cmake ./conanbuildinfo.txt ./conaninfo.txt ./conan.lock ./graph_info.json %s", Proj_Dir_char);
+                system(Conan_Installed_Transfer);
+            }
+
+        }
+    }
+=======
     QString Conan_File_TXT = "/conanfile.txt";
     int current_Index_PackageList = ui->listWidget_PackageList->currentRow();
     QString current_Install_Package = ui->listWidget_PackageList->item(current_Index_PackageList)->text();
@@ -206,12 +374,17 @@ void barbarian::on_pushButton_Package_Install_clicked()
         system(Conan_Install_Command);
     }
 
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 void barbarian::on_pushButton_Package_List_Back_clicked()
 {
     ui->listWidget_PackageList->clear();
     ui->stackedWidget->setCurrentIndex(0);
+<<<<<<< HEAD
+    ui->progressBar_Progress->hide();
+=======
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 void barbarian::showBuildSystem() {
@@ -245,6 +418,200 @@ void barbarian::on_pushButton_Save_BuildSystem_clicked()
     }
 }
 
+<<<<<<< HEAD
+void barbarian::on_pushButton_Remove_clicked() {
+    QString ver;
+    QString current_Remove_Package_name;
+    QString Conan_Dir_Data = ui->lineEdit_Storage_Path->text();
+    int current_Index_Remove = ui->listWidget_Installed->currentRow();
+    QString current_Remove_Package = ui->listWidget_Installed->item(current_Index_Remove)->text();
+    if(current_Remove_Package.length() != 0 && (current_Remove_Package.contains("/") || current_Remove_Package.contains("@"))) {
+        int Remove_Package_Index = current_Remove_Package.indexOf("/");
+        current_Remove_Package_name = current_Remove_Package;
+        current_Remove_Package_name.truncate(Remove_Package_Index);
+        int current_Remove_Index_version = current_Remove_Package.indexOf("@");
+        if(current_Remove_Index_version > -1) {
+            ver = current_Remove_Package.mid((Remove_Package_Index+1), (current_Remove_Index_version-Remove_Package_Index-1));
+        } else {
+            ver = current_Remove_Package.mid(Remove_Package_Index+1);
+        }
+        QByteArray current_Remove_Package_name_QBA = current_Remove_Package_name.toLocal8Bit();
+        QByteArray current_Remove_Package_ver_QBA = ver.toLocal8Bit();
+        char * curr_Rem_Package_name_char = current_Remove_Package_name_QBA.data();
+        char * curr_Rem_Package_ver_char = current_Remove_Package_ver_QBA.data();
+        char Full_Path_Rem[300];
+        QString Conan_FP = Conan_Dir + Conan_Dir_Data;
+        QByteArray Conan_FP_QBA = Conan_FP.toLocal8Bit();
+        char * Conan_Dir_char = Conan_FP_QBA.data();
+        sprintf(Full_Path_Rem,"rm -rf %s/%s/%s",Conan_Dir_char,curr_Rem_Package_name_char,curr_Rem_Package_ver_char);
+        system(Full_Path_Rem);
+        show_Installed();
+    } else {
+        QMessageBox::information(this, "Error!", "Please select a package.");
+    }
+}
+
+void barbarian::show_Compression() {
+    QFile compress_Read_file(Conan_Dir + Conan_file_config);
+    QTextStream compress_file_read_Stream(&compress_Read_file);
+    QStringList compress_qsl_read;
+    if(compress_Read_file.open(QIODevice::ReadWrite)) {
+        while(!compress_file_read_Stream.atEnd()) {
+            compress_qsl_read.append(compress_file_read_Stream.readLine());
+        }
+        int indexOfRead = compress_qsl_read.indexOf(QRegExp("compression_level*",Qt::CaseInsensitive,QRegExp::Wildcard));
+        QString compress_Part = compress_qsl_read.at(indexOfRead);
+        int indexOfEqual = compress_Part.lastIndexOf("=");
+        compress_Part = compress_Part.mid((indexOfEqual+2),3);
+        ui->lineEdit_Comp_Lev->setText(compress_Part);
+        compress_Read_file.close();
+    }
+}
+
+void barbarian::show_Profile() {
+    QFile profile_Read_file(Conan_Dir + Conan_file_config);
+    QTextStream profile_file_read_Stream(&profile_Read_file);
+    QStringList profile_qsl_read;
+    if(profile_Read_file.open(QIODevice::ReadWrite)) {
+        while(!profile_file_read_Stream.atEnd()) {
+            profile_qsl_read.append(profile_file_read_Stream.readLine());
+        }
+        int indexOfProfRead = profile_qsl_read.indexOf(QRegExp("default_profile*",Qt::CaseInsensitive,QRegExp::Wildcard));
+        QString profile_Part = profile_qsl_read.at(indexOfProfRead);
+        profile_Part = profile_Part.mid((profile_Part.lastIndexOf(" ")+1));
+        ui->lineEdit_Profile->setText(profile_Part);
+        profile_Read_file.close();
+    }
+}
+
+void barbarian::show_Storage_Path() {
+    QFile path_Read_file(Conan_Dir + Conan_file_config);
+    QTextStream path_file_read_Stream(&path_Read_file);
+    QStringList path_qsl_read;
+    if(path_Read_file.open(QIODevice::ReadWrite)) {
+        while(!path_file_read_Stream.atEnd()) {
+            path_qsl_read.append(path_file_read_Stream.readLine());
+        }
+        int indexOfPathRead = path_qsl_read.indexOf(QRegExp("path = *",Qt::CaseInsensitive,QRegExp::Wildcard));
+        QString path_Part = path_qsl_read.at(indexOfPathRead);
+        path_Part = path_Part.mid((path_Part.lastIndexOf(" ")+1));
+        ui->lineEdit_Storage_Path->setText(path_Part);
+        path_Read_file.close();
+    }
+}
+void barbarian::on_pushButton_Comp_Save_clicked()
+{
+    int i=0; bool isItOK;
+    QString Comp_Lev = ui->lineEdit_Comp_Lev->text().trimmed();
+    if(Comp_Lev.toInt(&isItOK,10) != 0) {
+        QFile compress_Change_file(Conan_Dir + Conan_file_config);
+        QTextStream compress_file_Stream(&compress_Change_file);
+        QStringList compress_qsl_opt;
+        if(compress_Change_file.open(QIODevice::ReadWrite)) {
+            while(!compress_file_Stream.atEnd()) {
+                compress_qsl_opt.append(compress_file_Stream.readLine());
+            }
+            compress_Change_file.close();
+            int index = compress_qsl_opt.indexOf(QRegExp("compression_level*",Qt::CaseInsensitive,QRegExp::Wildcard));
+            QString compress_New = "compression_level = " + Comp_Lev;
+            compress_qsl_opt.replace(index,compress_New);
+            int ind2 = compress_qsl_opt.length();
+            QFile compress_Change_file2(Conan_Dir + Conan_file_config);
+            QTextStream compress_file_Stream2(&compress_Change_file2);
+            if(compress_Change_file2.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
+                while(i<ind2) {
+                    compress_file_Stream2 << compress_qsl_opt.at(i) << "\n";
+                    i++;
+                }
+                i=0;
+            }
+            compress_Change_file.close();
+            QMessageBox::information(this,"Success!","Compression level has been updated successfully!");
+        }
+    } else {
+       QMessageBox::information(this,"Error","Input a numerical value.");
+    }
+}
+
+void barbarian::on_pushButton_Profile_Save_clicked()
+{
+    int g=0;
+    QFile profile_Change_file(Conan_Dir + Conan_file_config);
+    QTextStream profile_file_Stream(&profile_Change_file);
+    QStringList profile_qsl_opt;
+    if(profile_Change_file.open(QIODevice::ReadWrite)) {
+        while(!profile_file_Stream.atEnd()) {
+            profile_qsl_opt.append(profile_file_Stream.readLine());
+        }
+        profile_Change_file.close();
+        int index = profile_qsl_opt.indexOf(QRegExp("default_profile*",Qt::CaseInsensitive,QRegExp::Wildcard));
+        QString profile_New = "default_profile = " + (ui->lineEdit_Profile->text()).trimmed();
+        profile_qsl_opt.replace(index,profile_New);
+        int ind3 = profile_qsl_opt.length();
+        QFile profile_Change_file2(Conan_Dir + Conan_file_config);
+        QTextStream profile_file_Stream2(&profile_Change_file2);
+        if(profile_Change_file2.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
+            while(g<ind3) {
+                profile_file_Stream2 << profile_qsl_opt.at(g) << "\n";
+                g++;
+            }
+            g=0;
+        }
+        profile_Change_file.close();
+        QMessageBox::information(this,"Success!","Default profile has been updated successfully!");
+    }
+}
+
+void barbarian::on_tabWidget_Preferences_currentChanged(int index)
+{
+    if(index == 0) {
+        show_Compression();
+        show_Profile();
+        show_Storage_Path();
+        showBuildSystem();
+    }
+
+    else if(index == 1) {
+        remotes_fileOpen();
+        config_fileOpen();
+    }
+}
+
+void barbarian::on_pushButton_Storage_Save_clicked()
+{
+    int j=0;
+    QFile path_Change_file(Conan_Dir + Conan_file_config);
+    QTextStream path_file_Stream(&path_Change_file);
+    QStringList path_qsl_opt;
+    if(path_Change_file.open(QIODevice::ReadWrite)) {
+        while(!path_file_Stream.atEnd()) {
+            path_qsl_opt.append(path_file_Stream.readLine());
+        }
+        path_Change_file.close();
+        int index = path_qsl_opt.indexOf(QRegExp("path =*",Qt::CaseInsensitive,QRegExp::Wildcard));
+        QString path_New = "path = " + (ui->lineEdit_Storage_Path->text()).trimmed();
+        path_qsl_opt.replace(index,path_New);
+        int ind4 = path_qsl_opt.length();
+        QFile path_Change_file2(Conan_Dir + Conan_file_config);
+        QTextStream path_file_Stream2(&path_Change_file2);
+        if(path_Change_file2.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
+            while(j<ind4) {
+                path_file_Stream2 << path_qsl_opt.at(j) << "\n";
+                j++;
+            }
+            j=0;
+        }
+        path_Change_file.close();
+        QMessageBox::information(this,"Success!","The default storage path has been updated successfully!");
+    }
+}
+
+void barbarian::on_pushButton_Storage_Path_Help_clicked()
+{
+    QMessageBox::information(this,"Help","This is the directory where the packeges would be installed. \n"
+                                         "Note: this directory is with respective to the conan parent directory.\n"
+                                  "i.e. When both the Conan directory and storage path when combined should give the full path.");
+=======
 void barbarian::on_pushButton_Remove_clicked()
 {
     int current_Index_Remove = ui->listWidget_Installed->currentRow();
@@ -259,4 +626,5 @@ void barbarian::on_pushButton_Remove_clicked()
     char * Conan_Dir_char = Conan_FP_QBA.data();
     sprintf(Full_Path_Rem,"rm -rf %s/%s",Conan_Dir_char,curr_Rem_Package_char);
     system(Full_Path_Rem);
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }

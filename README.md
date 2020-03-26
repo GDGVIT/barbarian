@@ -10,9 +10,10 @@
 
 
 ## Functionalities
-- [ ]   Search for packages. 
-- [ ]   Download and install packages.
-- [ ]   Remove packages.
+- [X]   Search for packages. 
+- [X]   Download and install packages.
+- [X]   Upgrade packages.
+- [X]   Remove packages.
 
 <br>
 
@@ -24,8 +25,21 @@
 	-  Conan
 	-  GCC
 	-  CMake(Preferred)
+	-  POSIX compliant(unix-like) OS.
 <br>
 
+* How to install/build (with cmake):  
+
+  From the cloned directory,  
+```
+$ mkdir build  
+$ cd build  
+$ cmake ..  
+$ cmake --build . --target all  
+$ ./Barbarian
+```
+<br>
+	
 ## Contributors
 
 * [ Govind K ](https://github.com/roidujeu)

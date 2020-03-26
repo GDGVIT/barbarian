@@ -15,6 +15,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
 # They need to be set before the find_package(Qt5 ...) call.
 
+<<<<<<< HEAD
+
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+=======
 #if(ANDROID)
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
 #    if (ANDROID_ABI STREQUAL "armeabi-v7a")
@@ -34,12 +39,18 @@ if(ANDROID)
     barbarian.ui
   )
 else()
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
   add_executable(Barbarian
     main.cpp
     barbarian.cpp
     barbarian.h
     barbarian.ui
   )
+<<<<<<< HEAD
+
+target_link_libraries(Barbarian PRIVATE Qt5::Widgets )
+=======
 endif()
 
 target_link_libraries(Barbarian PRIVATE Qt5::Widgets)
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e

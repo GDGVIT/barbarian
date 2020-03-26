@@ -15,7 +15,10 @@ public:
     barbarian(QWidget *parent = nullptr);
     ~barbarian();
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 private slots:
     void on_pushButton_Search_Packages_clicked();
 
@@ -55,6 +58,27 @@ private slots:
 
     void on_pushButton_Remove_clicked();
 
+<<<<<<< HEAD
+    void show_Compression();
+
+    void show_Profile();
+
+    void show_Storage_Path();
+
+    void on_pushButton_Comp_Save_clicked();
+
+    void on_pushButton_Profile_Save_clicked();
+
+    void on_tabWidget_Preferences_currentChanged(int index);
+
+    void on_pushButton_Storage_Save_clicked();
+
+    void on_pushButton_Storage_Path_Help_clicked();
+
+    void show_Installed();
+
+=======
+>>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 private:
     Ui::barbarian *ui;
 };
