@@ -1,7 +1,7 @@
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/30529572/72455010-fb38d400-37e7-11ea-9c1e-8cdeb5f5906e.png" />
 	<h2 align="center">  ConanGUI  </h2>
-	<h4 align="center">  GUI for the conan package manager using Qt.  <h4>
+	<h4 align="center">  GUI for the Conan package manager written in Qt.  <h4>
 </p>
 
 ---
