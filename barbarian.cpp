@@ -1,3 +1,26 @@
+
+/*
+ *
+ * barbarian.cpp - this file is part of Barbarian, A frontend for the conan package manager written in Qt. 
+ *
+ * Copyright 2020 Govind K 
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+*/
+
+
 #include "barbarian.h"
 #include "./ui_barbarian.h"
 #include <QMessageBox>
@@ -9,7 +32,6 @@
 #include <stdio.h>
 #include <QString>
 #include <QFileInfo>
-<<<<<<< HEAD
 #include <QtWidgets>
 #include <QThread>
 #include <thread>
@@ -24,22 +46,11 @@ static char * Conan_Dir_str = getenv("CONAN_DIR");
 static QString Conan_Dir = QString::fromLocal8Bit(Conan_Dir_str);
 QProcess Install_Package;
 QProcess Package_Find;
-=======
-
-static QString Conan_Dir_Data = "/data/";
-static QString Conan_file_remotes = "/remotes.json";
-static QString Conan_file_config = "/conan.conf";
-static QString installedList_File = "./installed.txt";
-static QString buildSystem_File = "./buildsystem.txt";
-static char packageList_File[] = "./pkglist.txt";
-static QString Conan_Dir = QString::fromLocal8Bit(getenv("CONAN_GUI_DIR"));
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 
 barbarian::barbarian(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::barbarian)
 {
-<<<<<<< HEAD
     if(system("conan > /dev/null") != 0) {
         QMessageBox::critical(this,"Conan not found!","It seems conan is not installed in your system. Please install and try opening again.");
 
@@ -54,14 +65,6 @@ barbarian::barbarian(QWidget *parent)
         show_Storage_Path();
         ui->lineEdit_Conan_Dir->setText(Conan_Dir);
     }
-=======
-    ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(0);
-    char * Conan_Dir_str = getenv("CONAN_GUI_DIR");
-    QString Conan_Dir = QString::fromLocal8Bit(Conan_Dir_str);
-    ui->lineEdit_Conan_Dir->setText(Conan_Dir);
-    ui->lineEdit_Remotes->setText("all");
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 barbarian::~barbarian()
@@ -69,7 +72,6 @@ barbarian::~barbarian()
     delete ui;
 }
 
-<<<<<<< HEAD
 void barbarian::on_pushButton_Search_Packages_clicked() {
     if(system("ping -c 1 google.com") == 0) {
         ui->progressBar_Progress->setValue(0);
@@ -106,23 +108,6 @@ void barbarian::on_pushButton_Search_Packages_clicked() {
 }
 
 
-=======
-
-void barbarian::on_pushButton_Search_Packages_clicked()
-{
-    QString search_Term = ui->lineEdit_Search->text();
-    QString remotes_Term = ui->lineEdit_Remotes->text();
-    QByteArray search_Term_qbyte = search_Term.toLocal8Bit();
-    QByteArray remotes_Term_qbyte = remotes_Term.toLocal8Bit();
-    char * search_Term_char = search_Term_qbyte.data();
-    char * remotes_Term_char = remotes_Term_qbyte.data();
-    char combined_Buffer[100];
-    sprintf(combined_Buffer,"conan search %s -r=%s > %s", search_Term_char, remotes_Term_char, packageList_File);
-    system(combined_Buffer);
-    show_Search_Result();
-
-}
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 void barbarian::on_actionQuit_triggered()
 {
     qApp->quit();
@@ -135,17 +120,10 @@ void barbarian::on_actionAbout_QT_triggered()
 
 void barbarian::on_actionPreferences_triggered()
 {
-<<<<<<< HEAD
     ui->stackedWidget->setCurrentIndex(2);
     show_Compression();
     show_Profile();
     show_Storage_Path();
-=======
-    remotes_fileOpen();
-    config_fileOpen();
-    showBuildSystem();
-    ui->stackedWidget->setCurrentIndex(2);
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 void barbarian::on_actionSearch_triggered()
@@ -154,7 +132,6 @@ void barbarian::on_actionSearch_triggered()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-<<<<<<< HEAD
 void barbarian::show_Installed() {
     ui->listWidget_Installed->clear();
     ui->stackedWidget->setCurrentIndex(1);
@@ -172,23 +149,6 @@ void barbarian::show_Installed() {
 void barbarian::on_actionInstalled_triggered()
 {
     show_Installed();
-=======
-void barbarian::on_actionInstalled_triggered()
-{
-    ui->listWidget_Installed->clear();
-    ui->stackedWidget->setCurrentIndex(1);
-    QFile installed_Files_List(installedList_File);
-    if(installed_Files_List.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
-        system("conan search > installed.txt");
-        while(!installed_Files_List.atEnd()) {
-            QString list_item = installed_Files_List.readLine();
-            if(list_item.contains("/") || list_item.contains("Existing")) {
-                    ui->listWidget_Installed->addItem(list_item);
-            }
-        }
-        installed_Files_List.close();
-    }
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 
@@ -202,7 +162,7 @@ void barbarian::on_pushButton_Help_Remotes_clicked()
 
 void barbarian::on_pushButton_Conan_Dir_Help_clicked()
 {
-    QMessageBox::information(this,"Help","This is where conan is currently installed. \nIf it's empty, it means you haven't added 'CONAN_GUI_DIR' environment variable.");
+    QMessageBox::information(this,"Help","This is where conan is currently installed. \nIf it's empty, it means you haven't added 'CONAN_DIR' environment variable.");
 }
 
 void barbarian::remotes_fileOpen() {
@@ -234,7 +194,6 @@ void barbarian::config_fileOpen() {
 }
 
 void barbarian::show_Search_Result() {
-<<<<<<< HEAD
     ui->listWidget_PackageList->clear();
     QFile search_Result_File(packageList_File);
 
@@ -242,16 +201,6 @@ void barbarian::show_Search_Result() {
         while(!search_Result_File.atEnd()) {
             QString result_Item = search_Result_File.readLine();
             if (result_Item.contains("/") || result_Item.contains("Remote")) {
-=======
-    ui->stackedWidget->setCurrentIndex(3);
-    ui->listWidget_PackageList->clear();
-    QFile search_Result_File(packageList_File);
-
-    if(search_Result_File.open(QIODevice::ReadOnly | QIODevice::ReadWrite )) {
-        while(!search_Result_File.atEnd()) {
-            QString result_Item = search_Result_File.readLine();
-            if (result_Item.contains("/") || result_Item.contains("Remote2")) {
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
                 ui->listWidget_PackageList->addItem(result_Item);
             }
         }
@@ -291,7 +240,6 @@ void barbarian::on_actionAbout_Conan_triggered()
 
 void barbarian::on_pushButton_Package_Install_clicked()
 {
-<<<<<<< HEAD
     ui->progressBar_Installation->setValue(0);
     QString Conan_File_TXT = "/conanfile.txt";
     int current_Index_PackageList = ui->listWidget_PackageList->currentRow();
@@ -348,43 +296,13 @@ void barbarian::on_pushButton_Package_Install_clicked()
 
         }
     }
-=======
-    QString Conan_File_TXT = "/conanfile.txt";
-    int current_Index_PackageList = ui->listWidget_PackageList->currentRow();
-    QString current_Install_Package = ui->listWidget_PackageList->item(current_Index_PackageList)->text();
-    QString Proj_Dir = ui->lineEdit_Project_Directory->text();
-    QString Proj_generator = ui->lineEdit_BuildSystem->text();
-    if(Proj_Dir.length() == 0) {
-        QMessageBox::critical(this,"Error","Please specifiy the project directory.");
-    } else {
-        Conan_File_TXT = Proj_Dir + Conan_File_TXT;
-        QFile Proj_Dir_File(Conan_File_TXT);
-        if(Proj_Dir_File.open(QIODevice::WriteOnly)) {
-            QTextStream Proj_Dir_File_Write(&Proj_Dir_File);
-            Proj_Dir_File_Write << "[requires]" << "\n";
-            Proj_Dir_File_Write << current_Install_Package << "\n\n";
-            Proj_Dir_File_Write << "[generators]" << "\n";
-            Proj_Dir_File_Write << Proj_generator;
-            Proj_Dir_File.close();
-        }
-        QByteArray Proj_Dir_QBA = Proj_Dir.toLocal8Bit();
-        char * Proj_Dir_char = Proj_Dir_QBA.data();
-        char Conan_Install_Command[100];
-        sprintf(Conan_Install_Command,"conan install %s", Proj_Dir_char);
-        system(Conan_Install_Command);
-    }
-
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 void barbarian::on_pushButton_Package_List_Back_clicked()
 {
     ui->listWidget_PackageList->clear();
     ui->stackedWidget->setCurrentIndex(0);
-<<<<<<< HEAD
     ui->progressBar_Progress->hide();
-=======
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }
 
 void barbarian::showBuildSystem() {
@@ -418,7 +336,6 @@ void barbarian::on_pushButton_Save_BuildSystem_clicked()
     }
 }
 
-<<<<<<< HEAD
 void barbarian::on_pushButton_Remove_clicked() {
     QString ver;
     QString current_Remove_Package_name;
@@ -611,20 +528,4 @@ void barbarian::on_pushButton_Storage_Path_Help_clicked()
     QMessageBox::information(this,"Help","This is the directory where the packeges would be installed. \n"
                                          "Note: this directory is with respective to the conan parent directory.\n"
                                   "i.e. When both the Conan directory and storage path when combined should give the full path.");
-=======
-void barbarian::on_pushButton_Remove_clicked()
-{
-    int current_Index_Remove = ui->listWidget_Installed->currentRow();
-    QString current_Remove_Package = ui->listWidget_Installed->item(current_Index_Remove)->text();
-    int Remove_Package_Index = current_Remove_Package.indexOf("/");
-    current_Remove_Package.truncate(Remove_Package_Index);
-    QByteArray current_Remove_Package_QBA = current_Remove_Package.toLocal8Bit();
-    char * curr_Rem_Package_char = current_Remove_Package_QBA.data();
-    char Full_Path_Rem[100];
-    QString Conan_FP = Conan_Dir + Conan_Dir_Data;
-    QByteArray Conan_FP_QBA = Conan_FP.toLocal8Bit();
-    char * Conan_Dir_char = Conan_FP_QBA.data();
-    sprintf(Full_Path_Rem,"rm -rf %s/%s",Conan_Dir_char,curr_Rem_Package_char);
-    system(Full_Path_Rem);
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 }

@@ -19,11 +19,7 @@
   <property name="maximumSize">
    <size>
     <width>800</width>
-<<<<<<< HEAD
     <height>551</height>
-=======
-    <height>800</height>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
    </size>
   </property>
   <property name="windowTitle">
@@ -76,11 +72,7 @@
      </size>
     </property>
     <property name="currentIndex">
-<<<<<<< HEAD
      <number>2</number>
-=======
-     <number>3</number>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
     </property>
     <widget class="QWidget" name="Search">
      <widget class="QPushButton" name="pushButton_Search_Packages">
@@ -163,7 +155,6 @@
        </size>
       </property>
      </widget>
-<<<<<<< HEAD
      <widget class="QLabel" name="label_Spinner">
       <property name="geometry">
        <rect>
@@ -193,8 +184,6 @@
        <bool>false</bool>
       </property>
      </widget>
-=======
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
     </widget>
     <widget class="QWidget" name="Installed">
      <widget class="QListWidget" name="listWidget_Installed">
@@ -309,7 +298,6 @@
        <attribute name="title">
         <string>General</string>
        </attribute>
-<<<<<<< HEAD
        <widget class="QLabel" name="label_Conan_Dir">
         <property name="geometry">
          <rect>
@@ -368,29 +356,16 @@
           <x>0</x>
           <y>250</y>
           <width>141</width>
-=======
-       <widget class="QLabel" name="label_Remotes">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>60</y>
-          <width>71</width>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-<<<<<<< HEAD
          <string>Default Build System:</string>
-=======
-         <string>Remotes:</string>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QLineEdit" name="lineEdit_BuildSystem">
         <property name="geometry">
          <rect>
@@ -417,49 +392,16 @@
           <x>80</x>
           <y>100</y>
           <width>61</width>
-=======
-       <widget class="QTextEdit" name="textEdit_Remotes">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>60</y>
-          <width>491</width>
-          <height>181</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_Config">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>260</y>
-          <width>491</width>
-          <height>201</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_Config">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>260</y>
-          <width>71</width>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-<<<<<<< HEAD
          <string>Profile:</string>
-=======
-         <string>Config:</string>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QPushButton" name="pushButton_Profile_Save">
         <property name="geometry">
          <rect>
@@ -467,22 +409,12 @@
           <y>100</y>
           <width>41</width>
           <height>23</height>
-=======
-       <widget class="QPushButton" name="pushButton_Remotes">
-        <property name="geometry">
-         <rect>
-          <x>650</x>
-          <y>220</y>
-          <width>51</width>
-          <height>21</height>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
          </rect>
         </property>
         <property name="text">
          <string>Save</string>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QPushButton" name="pushButton_Storage_Save">
         <property name="geometry">
          <rect>
@@ -490,22 +422,12 @@
           <y>180</y>
           <width>41</width>
           <height>23</height>
-=======
-       <widget class="QPushButton" name="pushButton_Config">
-        <property name="geometry">
-         <rect>
-          <x>650</x>
-          <y>440</y>
-          <width>51</width>
-          <height>21</height>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
          </rect>
         </property>
         <property name="text">
          <string>Save</string>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QLineEdit" name="lineEdit_Storage_Path">
         <property name="geometry">
          <rect>
@@ -538,47 +460,26 @@
           <x>20</x>
           <y>330</y>
           <width>121</width>
-=======
-       <widget class="QLabel" name="label_Conan_Dir">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>30</y>
-          <width>111</width>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-<<<<<<< HEAD
          <string>Compression Level:</string>
-=======
-         <string>Conan Directory:</string>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QLineEdit" name="lineEdit_Comp_Lev">
         <property name="geometry">
          <rect>
           <x>150</x>
           <y>330</y>
-=======
-       <widget class="QLineEdit" name="lineEdit_Conan_Dir">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>30</y>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
           <width>491</width>
           <height>23</height>
          </rect>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QPushButton" name="pushButton_Comp_Save">
         <property name="geometry">
          <rect>
@@ -597,13 +498,6 @@
          <rect>
           <x>700</x>
           <y>180</y>
-=======
-       <widget class="QPushButton" name="pushButton_Conan_Dir_Help">
-        <property name="geometry">
-         <rect>
-          <x>650</x>
-          <y>30</y>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
           <width>41</width>
           <height>23</height>
          </rect>
@@ -613,7 +507,6 @@
         </property>
        </widget>
       </widget>
-<<<<<<< HEAD
       <widget class="QWidget" name="tab_advanced">
        <attribute name="title">
         <string>Advanced</string>
@@ -640,33 +533,16 @@
           <x>30</x>
           <y>20</y>
           <width>71</width>
-=======
-      <widget class="QWidget" name="tab_build">
-       <attribute name="title">
-        <string>Build</string>
-       </attribute>
-       <widget class="QLabel" name="label_BuildSystem">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>141</width>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-<<<<<<< HEAD
          <string>Remotes:</string>
-=======
-         <string>Default Build System:</string>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
-<<<<<<< HEAD
        <widget class="QTextEdit" name="textEdit_Config">
         <property name="geometry">
          <rect>
@@ -707,25 +583,6 @@
           <y>150</y>
           <width>51</width>
           <height>21</height>
-=======
-       <widget class="QLineEdit" name="lineEdit_BuildSystem">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>30</y>
-          <width>491</width>
-          <height>23</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_Save_BuildSystem">
-        <property name="geometry">
-         <rect>
-          <x>690</x>
-          <y>30</y>
-          <width>51</width>
-          <height>23</height>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
          </rect>
         </property>
         <property name="text">
@@ -739,17 +596,10 @@
      <widget class="QPushButton" name="pushButton_Package_Install">
       <property name="geometry">
        <rect>
-<<<<<<< HEAD
         <x>580</x>
         <y>340</y>
         <width>171</width>
         <height>20</height>
-=======
-        <x>619</x>
-        <y>480</y>
-        <width>171</width>
-        <height>23</height>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
        </rect>
       </property>
       <property name="text">
@@ -761,13 +611,8 @@
        <rect>
         <x>10</x>
         <y>40</y>
-<<<<<<< HEAD
         <width>741</width>
         <height>291</height>
-=======
-        <width>781</width>
-        <height>431</height>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
        </rect>
       </property>
      </widget>
@@ -807,11 +652,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-<<<<<<< HEAD
         <y>340</y>
-=======
-        <y>480</y>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
         <width>110</width>
         <height>21</height>
        </rect>
@@ -827,7 +668,6 @@
       <property name="geometry">
        <rect>
         <x>130</x>
-<<<<<<< HEAD
         <y>340</y>
         <width>441</width>
         <height>20</height>
@@ -878,13 +718,6 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-=======
-        <y>480</y>
-        <width>481</width>
-        <height>23</height>
-       </rect>
-      </property>
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
      </widget>
     </widget>
    </widget>

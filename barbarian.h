@@ -15,10 +15,6 @@ public:
     barbarian(QWidget *parent = nullptr);
     ~barbarian();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 private slots:
     void on_pushButton_Search_Packages_clicked();
 
@@ -58,7 +54,6 @@ private slots:
 
     void on_pushButton_Remove_clicked();
 
-<<<<<<< HEAD
     void show_Compression();
 
     void show_Profile();
@@ -77,8 +72,6 @@ private slots:
 
     void show_Installed();
 
-=======
->>>>>>> f792dea0103330dac4bf35032dc2fb13f4df1e3e
 private:
     Ui::barbarian *ui;
 };
