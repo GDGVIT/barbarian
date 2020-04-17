@@ -530,7 +530,6 @@ void barbarian::on_pushButton_Storage_Path_Help_clicked()
                                   "i.e. When both the Conan directory and storage path when combined should give the full path.");
 }
 
-
 void barbarian::on_actionAbout_Barbarian_triggered()
 {
     QMessageBox about_Barbie;
