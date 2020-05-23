@@ -37,8 +37,8 @@
 #include <thread>
 #include <QTimer>
 
-static QString Conan_file_remotes = "remotes.json";
-static QString Conan_file_config = "conan.conf";
+static QString Conan_file_remotes = "/remotes.json";
+static QString Conan_file_config = "/conan.conf";
 static QString installedList_File = "./installed.txt";
 static QString buildSystem_File = "./buildsystem.txt";
 static char packageList_File[] = "./pkglist.txt";
@@ -170,13 +170,12 @@ void barbarian::remotes_fileOpen() {
     QFile remotes_file(conan_remotes_Fileopen);
 
     if(!remotes_file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0,"info",remotes_file.errorString());
-    }
-
-    QTextStream remotes_file_in(&remotes_file);
-    ui->textEdit_Remotes->setText(remotes_file_in.readAll());
-    remotes_file.close();
-
+        QMessageBox::information(0,"Failure","Remotes file not found. Make sure the file is present and the environment variable 'CONAN_DIR' set.");
+    } else {
+		QTextStream remotes_file_in(&remotes_file);
+	    ui->textEdit_Remotes->setText(remotes_file_in.readAll());
+		 remotes_file.close();
+	}
 }
 
 void barbarian::config_fileOpen() {
@@ -184,13 +183,12 @@ void barbarian::config_fileOpen() {
     QFile config_file(conan_config_Fileopen);
 
     if(!config_file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0,"info",config_file.errorString());
-    }
-
-    QTextStream config_file_in(&config_file);
-    ui->textEdit_Config->setText(config_file_in.readAll());
-    config_file.close();
-
+        QMessageBox::information(0,"Failure","Config file not found. Make sure the file is present and the environment 'CONAN_DIR' variable set.");
+    } else {
+	    QTextStream config_file_in(&config_file);
+    	ui->textEdit_Config->setText(config_file_in.readAll());
+    	config_file.close();
+	}
 }
 
 void barbarian::show_Search_Result() {
