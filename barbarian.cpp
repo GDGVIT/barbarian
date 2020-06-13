@@ -183,7 +183,7 @@ void barbarian::config_fileOpen() {
     QFile config_file(conan_config_Fileopen);
 
     if(!config_file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0,"Failure","Config file not found. Make sure the file is present and the environment 'CONAN_DIR' variable set.");
+        QMessageBox::information(0,"Failure","Config file not found. Make sure the file is present and the environment variable 'CONAN_DIR' set.");
     } else {
 	    QTextStream config_file_in(&config_file);
     	ui->textEdit_Config->setText(config_file_in.readAll());
