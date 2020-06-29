@@ -72,6 +72,8 @@ private slots:
 
     void show_Installed();
 
+    void on_actionAbout_Barbarian_triggered();
+
 private:
     Ui::barbarian *ui;
 };

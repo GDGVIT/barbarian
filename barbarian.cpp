@@ -37,8 +37,8 @@
 #include <thread>
 #include <QTimer>
 
-static QString Conan_file_remotes = "remotes.json";
-static QString Conan_file_config = "conan.conf";
+static QString Conan_file_remotes = "/remotes.json";
+static QString Conan_file_config = "/conan.conf";
 static QString installedList_File = "./installed.txt";
 static QString buildSystem_File = "./buildsystem.txt";
 static char packageList_File[] = "./pkglist.txt";
@@ -170,13 +170,12 @@ void barbarian::remotes_fileOpen() {
     QFile remotes_file(conan_remotes_Fileopen);
 
     if(!remotes_file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0,"info",remotes_file.errorString());
-    }
-
-    QTextStream remotes_file_in(&remotes_file);
-    ui->textEdit_Remotes->setText(remotes_file_in.readAll());
-    remotes_file.close();
-
+        QMessageBox::information(0,"Failure","Remotes file not found. Make sure the file is present and the environment variable 'CONAN_DIR' set.");
+    } else {
+		QTextStream remotes_file_in(&remotes_file);
+	    ui->textEdit_Remotes->setText(remotes_file_in.readAll());
+		 remotes_file.close();
+	}
 }
 
 void barbarian::config_fileOpen() {
@@ -184,13 +183,12 @@ void barbarian::config_fileOpen() {
     QFile config_file(conan_config_Fileopen);
 
     if(!config_file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0,"info",config_file.errorString());
-    }
-
-    QTextStream config_file_in(&config_file);
-    ui->textEdit_Config->setText(config_file_in.readAll());
-    config_file.close();
-
+        QMessageBox::information(0,"Failure","Config file not found. Make sure the file is present and the environment variable 'CONAN_DIR' set.");
+    } else {
+	    QTextStream config_file_in(&config_file);
+    	ui->textEdit_Config->setText(config_file_in.readAll());
+    	config_file.close();
+	}
 }
 
 void barbarian::show_Search_Result() {
@@ -286,9 +284,12 @@ void barbarian::on_pushButton_Package_Install_clicked()
                     }
                     ui->progressBar_Installation->setValue(100);
                     ui->progressBar_Installation->setValue(0);
-                    QMessageBox::information(this,"Success","The package was successfully installed!");
                 }
-
+				if(Install_Package.exitCode() == 0) {
+					QMessageBox::information(this,"Success","The package was successfully installed!");
+				} else {
+					QMessageBox::information(this,"Failed!","The package was not installed! Please check the output for further information.");
+				}
 
                 sprintf(Conan_Installed_Transfer,"mv ./conanbuildinfo.cmake ./conanbuildinfo.txt ./conaninfo.txt ./conan.lock ./graph_info.json %s", Proj_Dir_char);
                 system(Conan_Installed_Transfer);
@@ -528,4 +529,16 @@ void barbarian::on_pushButton_Storage_Path_Help_clicked()
     QMessageBox::information(this,"Help","This is the directory where the packeges would be installed. \n"
                                          "Note: this directory is with respective to the conan parent directory.\n"
                                   "i.e. When both the Conan directory and storage path when combined should give the full path.");
+}
+
+void barbarian::on_actionAbout_Barbarian_triggered()
+{
+    QMessageBox about_Barbie;
+    QPixmap barbie_Pixie;
+    barbie_Pixie.load("../res/barbarian.jpeg");
+    barbie_Pixie.scaled(3,3);
+    about_Barbie.setIconPixmap(barbie_Pixie);
+    about_Barbie.exec();
+    about_Barbie.about(this,"About Barbarian","Barbarian is an open-source project started and maintained by Developer Students Club, Vit, Vellore, India.\n"
+                                         "Barbarian is using a GPL 3.0 license, and the file 'COPYING' includes details of the license.\n");
 }

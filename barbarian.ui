@@ -746,6 +746,7 @@
     </property>
     <addaction name="actionAbout_QT"/>
     <addaction name="actionAbout_Conan"/>
+    <addaction name="actionAbout_Barbarian"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuAbout"/>
@@ -779,6 +780,11 @@
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionAbout_Barbarian">
+   <property name="text">
+    <string>About Barbarian</string>
    </property>
   </action>
  </widget>
