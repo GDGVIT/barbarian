@@ -284,9 +284,12 @@ void barbarian::on_pushButton_Package_Install_clicked()
                     }
                     ui->progressBar_Installation->setValue(100);
                     ui->progressBar_Installation->setValue(0);
-                    QMessageBox::information(this,"Success","The package was successfully installed!");
                 }
-
+				if(Install_Package.exitCode() == 0) {
+					QMessageBox::information(this,"Success","The package was successfully installed!");
+				} else {
+					QMessageBox::information(this,"Failed!","The package was not installed! Please check the output for further information.");
+				}
 
                 sprintf(Conan_Installed_Transfer,"mv ./conanbuildinfo.cmake ./conanbuildinfo.txt ./conaninfo.txt ./conan.lock ./graph_info.json %s", Proj_Dir_char);
                 system(Conan_Installed_Transfer);
@@ -536,6 +539,6 @@ void barbarian::on_actionAbout_Barbarian_triggered()
     barbie_Pixie.scaled(3,3);
     about_Barbie.setIconPixmap(barbie_Pixie);
     about_Barbie.exec();
-    about_Barbie.about(this,"About Barbarian","Barbarian is an open-source project started and maintained by the Developer Students Club, Vit, Vellore, India.\n"
-                                         "Barbarian is using a GPL 3.0 license, and the file 'COPYING' icludes details of the license.\n");
+    about_Barbie.about(this,"About Barbarian","Barbarian is an open-source project started and maintained by Developer Students Club, Vit, Vellore, India.\n"
+                                         "Barbarian is using a GPL 3.0 license, and the file 'COPYING' includes details of the license.\n");
 }
