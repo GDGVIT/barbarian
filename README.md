@@ -41,6 +41,23 @@ $ ./Barbarian
 ```
 <br>
 	
+## Screenshots  
+- Install Success  
+<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/tmM2Puj.png" /></a></p>  
+  
+- General Preferences  
+<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/NbEi7ph.png" /></a></p>  
+  
+- Advanced Preferences  
+<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/AbROssk.png" /></a></p>  
+  
+- Install Failed  
+<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/iE4preP.png" /></a></p>  
+  
+- About Barbarian  
+<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/AuUZq2b.png" /></a></p>  
+  
+
 ## Contributors
 
 * [ Govind K ](https://github.com/roidujeu)
