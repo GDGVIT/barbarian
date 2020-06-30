@@ -43,19 +43,19 @@ $ ./Barbarian
 	
 ## Screenshots  
 - Install Success  
-<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/tmM2Puj.png" /></a></p>  
+<p align="center"><img src="https://i.imgur.com/tmM2Puj.png" alt="Install Success" /></a></p>  
   
 - General Preferences  
-<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/NbEi7ph.png" /></a></p>  
+<p align="center"><img src="https://i.imgur.com/NbEi7ph.png" alt="General Preference" /></a></p>  
   
 - Advanced Preferences  
-<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/AbROssk.png" /></a></p>  
+<p align="center"><img src="https://i.imgur.com/AbROssk.png" alt="Advanced Preference" /></a></p>  
   
 - Install Failed  
-<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/iE4preP.png" /></a></p>  
+<p align="center"><img src="https://i.imgur.com/iE4preP.png" alt="Install Failed" /></a></p>  
   
 - About Barbarian  
-<p align="center"><a href="https://www.youtube.com/watch?v=U2n5aGqou9E"><img src="https://i.imgur.com/AuUZq2b.png" /></a></p>  
+<p align="center"><img src="https://i.imgur.com/AuUZq2b.png" alt="About Barbarian" /></a></p>  
   
 
 ## Contributors
