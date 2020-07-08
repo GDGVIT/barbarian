@@ -31,9 +31,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <QString>
 #include <QFileInfo>
-#include <QtWidgets>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkRequest>
@@ -50,9 +48,12 @@ barbarian::barbarian(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::barbarian)
 {
-    if(system("conan > /dev/null") != 0) {
+	QProcess checkIf;
+	QStringList checkIfList = {">", "/dev/null"};
+	checkIf.start("conan", checkIfList, QIODevice::ReadWrite);
+	checkIf.waitForFinished(-1);
+    if(checkIf.exitCode() != 0) {
         QMessageBox::critical(this,"Conan not found!","It seems conan is not installed in your system. Please install and try opening again.");
-
     } else {
         ui->setupUi(this);
         ui->stackedWidget->setCurrentIndex(0);
