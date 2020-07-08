@@ -289,7 +289,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -498,6 +498,45 @@
          <rect>
           <x>700</x>
           <y>180</y>
+          <width>41</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Help</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_Full_Path">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>400</y>
+          <width>489</width>
+          <height>23</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_Full_Path">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>400</y>
+          <width>120</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Full Path:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Full_Path_Help">
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>400</y>
           <width>41</width>
           <height>23</height>
          </rect>

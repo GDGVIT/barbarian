@@ -16,7 +16,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # They need to be set before the find_package(Qt5 ...) call.
 
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Network REQUIRED)
 
   add_executable(Barbarian
     main.cpp
@@ -25,4 +25,4 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
     barbarian.ui
   )
 
-target_link_libraries(Barbarian PRIVATE Qt5::Widgets )
+target_link_libraries(Barbarian PRIVATE Qt5::Widgets Qt5::Network)
