@@ -36,8 +36,6 @@ private slots:
 
     void config_fileOpen();
 
-    void show_Search_Result();
-
     void on_pushButton_Remotes_clicked();
 
     void on_pushButton_Config_clicked();
@@ -73,6 +71,12 @@ private slots:
     void show_Installed();
 
     void on_actionAbout_Barbarian_triggered();
+
+    void on_pushButton_Full_Path_Help_clicked();
+
+    void setofFuncs();
+
+    void show_Full_Path();
 
 private:
     Ui::barbarian *ui;
